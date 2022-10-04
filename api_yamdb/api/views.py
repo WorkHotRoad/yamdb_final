@@ -3,16 +3,16 @@ from django.contrib.auth.hashers import check_password, make_password
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, mixins, pagination, status, viewsets
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-
-from api_yamdb.settings import DOMAIN_NAME
-from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework_simplejwt.tokens import RefreshToken
 from reviews.models import Category, Genre, Review, Title
+
+from api_yamdb.settings import DOMAIN_NAME
 
 from .filters import TitleFilter
 from .permissions import AdminOrReadOnly, IsAdmin, StaffOrAuthorOrReadOnly
