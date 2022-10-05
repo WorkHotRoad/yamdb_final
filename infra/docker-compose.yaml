@@ -8,7 +8,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: workhotroad/api_yamdb:v1.01
+    image: workhotroad/infra_actions:latest
     restart: always
     volumes:
       - static_value:/app/static/
